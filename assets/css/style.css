@@ -1,0 +1,495 @@
+/* ================= RESET & BASE ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+:root {
+  --primary: #facc15;   /* gold */
+  --secondary: #f59e0b; /* gold darker */
+  --accent: #fde68a;    /* soft gold */
+
+  --dark: #020617;
+  --dark-soft: #0f172a;
+
+  --glass: rgba(255,255,255,0.05);
+  --border: rgba(255,255,255,0.1);
+  --text-muted: #94a3b8;
+}
+
+/* ================= BODY ================= */
+body {
+    background: linear-gradient(135deg, #020617, #0f172a, #020617);
+
+    color: #f8fafc;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+body::before {
+    content: "";
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+
+    background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 60%);
+    
+    transform: rotate(25deg);
+    pointer-events: none;
+}
+body::after {
+    content: "";
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+
+    background: radial-gradient(circle, rgba(27, 143, 186, 0.076), transparent 60%);
+    
+    animation: moveGlow 12s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes moveGlow {
+    0% { transform: translate(0,0); }
+    50% { transform: translate(100px, -100px); }
+    100% { transform: translate(0,0); }
+}
+
+/* ================= GLOBAL ================= */
+section {
+    padding: 100px 8%;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* ================= NAVBAR PREMIUM FIX ================= */
+.navbar {
+    height: 70px; /* tinggi tetap */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8%;
+    background: rgba(2,6,23,0.7);
+    backdrop-filter: blur(15px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border);
+}
+
+/* LOGO FIX BIAR GA NGERUSAK NAVBAR */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--primary);
+    height: 100%;
+}
+
+/* BATASI UKURAN LOGO */
+.logo-container img {
+    max-height: 70px; /* penting */
+    width: auto;
+    object-fit: contain;
+}
+
+/* NAMA BRAND */
+.logo-container span {
+    white-space: nowrap;
+}
+
+/* MENU */
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+}
+
+/* LINK STYLE */
+.navbar ul li a {
+    text-decoration: none;
+    color: #cbd5e1;
+    font-size: 14px;
+    letter-spacing: 1px;
+    position: relative;
+    transition: 0.3s;
+}
+
+/* EFEK GARIS KUNING PREMIUM */
+.navbar ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0%;
+    height: 2px;
+    background: var(--primary);
+    transition: 0.3s;
+}
+
+.navbar ul li a:hover::after {
+    width: 100%;
+}
+
+.navbar ul li a:hover {
+    color: var(--primary);
+}
+
+/* ================= HERO ================= */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(2,6,23,0.7), rgba(2,6,23,0.9)),
+                url('../img/hero.jpg') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero-content h2 {
+    font-size: clamp(36px, 6vw, 64px);
+    line-height: 1.2;
+}
+
+.hero-content p {
+    margin-top: 10px;
+    color: var(--text-muted);
+}
+
+/* BUTTON */
+.btn {
+    margin-top: 25px;
+    padding: 14px 35px;
+    border-radius: 50px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  box-shadow: 0 0 20px var(--primary);
+
+    color: #020617;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+}
+
+/* ================= MENU PREMIUM ================= */
+.menu-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+.menu-item {
+    position: relative;
+    height: 240px;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 25px ;
+    color: #fff;
+    transition: 0.4s;
+}
+
+/* GAMBAR */
+.menu-item::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: 0.5s;
+    z-index: 0;
+}
+
+/* OVERLAY GRADIENT */
+.menu-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.2));
+    z-index: 1;
+}
+
+/* TEKS DI ATAS */
+.menu-item h3,
+.menu-item p,
+.menu-item span {
+    position: relative;
+    z-index: 2;
+}
+
+/* HOVER EFFECT */
+.menu-item:hover::before {
+    transform: scale(1.1);
+}
+
+.menu-item:hover {
+    transform: translateY(-12px);
+}
+
+/* ================= BACKGROUND PER MENU ================= */
+
+/* kopi */
+.mayo::before {
+    background-image: url('../img/mayo.png');
+}
+
+/* thai tea */
+.mentai::before {
+    background-image: url('../img/lumpiamentai.jpg');
+}
+
+/* es teh */
+.coklat::before {
+    background-image: url('../img/coklat.jpeg');
+}
+
+/* varian lain */
+.keju::before {
+    background-image: url('../img/lumpiakeju.jpg');
+}
+
+/* coklat */
+.kacang::before {
+    background-image: url('../img/lumpiakacang.png');
+}
+/* ================= ORDER ================= */
+.order-card {
+    max-width: 500px;
+    margin: auto;
+    background: rgba(15,23,42,0.7);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    border-radius: 25px;
+}
+
+/* INPUT */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+}
+
+.input-group input:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+/* ITEM */
+.item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.05);
+    margin-bottom: 10px;
+}
+
+.qty {
+    width: 60px;
+    text-align: center;
+    border-radius: 8px;
+    border: none;
+    background: var(--primary);
+    color: #000;
+    font-weight: bold;
+}
+
+/* TOTAL */
+.total-box {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #020617;
+    text-align: center;
+}
+
+/* ================= ABOUT ================= */
+.about {
+    max-width: 700px;
+    margin: auto;
+    text-align: center;
+    background: var(--glass);
+    padding: 30px;
+    border-radius: 20px;
+}
+/* ================= CONTACT ================= */
+.contact {
+  text-align: center;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    margin: auto;
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid var(--border);
+    margin-top: 50px;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: block;
+        font-size: 26px;
+        cursor: pointer;
+    }
+
+    .navbar ul {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 70%;
+        background: #020617;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: 0.4s;
+    }
+
+    .navbar ul.active {
+        right: 0;
+    }
+
+    .navbar ul li {
+        margin: 15px 0;
+    }
+
+    section {
+        padding: 80px 5%;
+    }
+
+    .hero-content h2 {
+        font-size: 28px;
+    }
+}
+.menu-toggle {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .navbar {
+        justify-content: space-between;
+    }
+}
+/* SWIPER */
+.swiper {
+    padding: 20px 10px 50px;
+}
+.swiper-slide {
+    transform: scale(0.9);
+    transition: 0.3s;
+}
+
+.swiper-slide-active {
+    transform: scale(1);
+}
+.swiper-slide {
+    width: 260px;
+}
+
+/* BIAR CARD TETAP CAKEP */
+.menu-item {
+    height: 240px;
+}
+#loading {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+  z-index: 9999;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #fff;
+  border-top: 4px solid yellow;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.menu-item:hover {
+  transform: translateY(-10px) scale(1.03);
+}
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.contact-list a {
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.contact-list a:hover {
+  color: var(--secondary);
+}
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.contact-buttons .btn {
+  min-width: 140px;
+  text-align: center;
+}
+.contact-buttons .btn:hover {
+  box-shadow: 0 0 20px var(--primary);
+}

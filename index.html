@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NyamBitess</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header>
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="assets/img/logo.png" alt="Logo">
+      <span>NyamBitess</span>
+    </div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <ul id="navMenu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#order">Pesan</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hero-content">
+    <h2>Nikmati Cemilan Favoritmu</h2>
+    <p>Gurih, enak, dan siap nemenin harimu </p>
+    <a href="#menu" class="btn">Lihat Menu</a>
+
+    <p style="margin-top:15px; font-size:14px;">
+      📍 Medan | 🕐 10.00 - 22.00
+    </p>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu" class="menu">
+  <h2> MENU </h2>
+
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+
+      <div class="swiper-slide menu-item mayo">
+        <h3>Lumpia Mayo</h3>
+        <p>Cemilan dengan saus mayo yang gurih</p>
+        <span>Rp10.000</span>
+      </div>
+
+      <div class="swiper-slide menu-item mentai">
+        <h3>Lumpia Mentai</h3>
+        <p>Cemilan gurih dengan saus Mentai</p>
+        <span>Rp7.000</span>
+      </div>
+
+      <div class="swiper-slide menu-item coklat">
+        <h3>Lumpia Coklat</h3>
+        <p>Cemilan manis dengan lumeran coklat di dalamnya</p>
+        <span>Rp10.000*5pcs</span>
+      </div>
+
+      <div class="swiper-slide menu-item keju">
+        <h3>Lumpia Keju</h3>
+        <p>Cemilan manis dengan taburan keju di atasnya</p>
+        <span>Rp12.000*5pcs</span>
+      </div>
+
+      <div class="swiper-slide menu-item kacang">
+        <h3>Lumpia kacang</h3>
+        <p>Cemilan gurih manis dengan taburan kacang</p>
+        <span>Rp.11.000*5pcs</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ORDER -->
+<section id="order" class="order">
+  <h2>Pesan Sekarang</h2>
+
+  <div class="order-card">
+
+    <div class="input-group">
+      <label>Nama</label>
+      <input type="text" id="nama" placeholder="Masukkan nama kamu">
+    </div>
+
+    <!-- LIST MENU -->
+    <div class="menu-order">
+
+      <div class="item">
+        <span>Lumpia May0 (5K)</span>
+        <input type="number" min="0" value="0" data-harga="5000" class="qty">
+      </div>
+
+      <div class="item">
+        <span>Lumpia Mentai (7K)</span>
+        <input type="number" min="0" value="0" data-harga="7000" class="qty">
+      </div>
+
+      <div class="item">
+        <span>Lumpia Coklat (10K)</span>
+        <input type="number" min="0" value="0" data-harga="10000" class="qty">
+      </div>
+
+      <div class="item">
+        <span>Lumpia Keju (12K)</span>
+        <input type="number" min="0" value="0" data-harga="12000" class="qty">
+      </div>
+
+      <div class="item">
+        <span>Lumpia Kacang (11K)</span>
+        <input type="number" min="0" value="0" data-harga="11000" class="qty">
+      </div>
+
+    </div>
+
+    <div class="total-box">
+      <p>Total</p>
+      <h3 id="total">Rp0</h3>
+    </div>
+
+    <button onclick="pesanWA()" class="btn">Pesan Sekarang</button>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <h2>Tentang NyamBitess</h2>
+  <p>
+     NyamBitess adalah usaha yang menjual Cemilan dengan variasi rasa Gurih dan Manis
+  </p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <h2>Hubungi Kami</h2>
+  <div class="contact-buttons">
+    <a href="https://wa.me/6282276345156" class="btn" target="_blank">📱 WhatsApp</a>
+    <a href="https://instagram.com/nyambitess____" class="btn" target="_blank">📸 Instagram</a>
+    <a href="mailto:nyambitess@gmail.com" class="btn">📧 Email</a>
+  </div>
+
+</section>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 NyamBitess. All Rights Reserved.</p>
+</footer>
+
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+<!-- SWIPER (WAJIB DULUAN) -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- SCRIPT KAMU -->
+<script src="assets/js/script.js"></script>
+
+<!-- LOADING -->
+<div id="loading">
+  <div class="spinner"></div>
+  <p>Memproses pesanan...</p>
+</div>
+
+</body>
+</html>
